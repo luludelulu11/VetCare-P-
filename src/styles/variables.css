@@ -87,6 +87,8 @@
   --coral-pale: #fdeae8;
   --tip-ink: #1f6b7a;
   --chip-ink: #0f6e84;
+  --alert-chip-bg: #fcd5c8;
+  --alert-chip-ink: #0f6e84;
 
   /* Ink scale (formerly hardcoded dark texts) */
   --ink-deep: #064761;
@@ -173,6 +175,8 @@
   --teal-lighta: #27596ed3;
   --tip-ink: #bfe3ee;
   --chip-ink: #8fd7e6;
+  --alert-chip-bg: #7a4636;
+  --alert-chip-ink: #ffd9c9;
   --teal-pale: #163643;
   --teal-pali: #163643dd;
   --teal-soft: #163a38;

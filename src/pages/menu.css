@@ -250,7 +250,7 @@ body {
   background: var(--teal-tint);
   border: none;
   cursor: pointer;
-  color: var(--brand);
+  color: var(--chip-ink, var(--brand));
   display: flex;
   padding: 6px;
   border-radius: 8px;
@@ -280,10 +280,10 @@ body {
 }
 .topbar__alert-btn {
   position: relative;
-  background: var(--logout-border);
+  background: var(--alert-chip-bg, #fcd5c8);
   border: none;
   cursor: pointer;
-  color: var(--brand);
+  color: var(--alert-chip-ink, var(--brand));
   display: flex;
   padding: 6px;
   border-radius: 8px;
@@ -569,15 +569,34 @@ body {
 
 
 /* ─── Responsive ──────────────────────────── */
-@media (max-width: 420px) {
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 14px 40px;
+  }
+
+  .main__greeting-title {
+    font-size: 1.45rem;
+  }
+
   .stats {
     grid-template-columns: 1fr 1fr;
   }
-  .stat-card:last-child {
-    grid-column: 1 / -1;
+
+  .stat-card {
+    padding: 10px;
+    gap: 10px;
   }
-  .main__greeting-title {
-    font-size: 1.45rem;
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card {
+    padding: 14px 16px;
+  }
+
+  .action-card--featured {
+    padding: 16px 18px;
   }
 }
 .topbar__logo{
