@@ -49,21 +49,7 @@ export const demoMascotas = [
   },
 ];
 
-export const demoAlertas = [
-  {
-    id: "1",
-    mascota_nombre: "Loki",
-    cliente_nombre: "Lucero Fernández",
-    cliente_telefono: "8095551234",
-    doctor_nombre: "Dr. Juan Pérez",
-    fecha: "2026-04-13",
-    proxima_cita: "2026-04-14",
-    motivo: "Chequeo general",
-    categoria: "manana",
-    gravedad: "moderada",
-    estado: "seguimiento",
-  },
-];
+
 
 export const demoRegistro = {
   clientes: [
@@ -196,4 +182,91 @@ export const demoHistorialMascota = [
       { codigo: "rou", nombre: "Control rutinario" },
     ],
   },
+];
+
+export const demoAlertas = [
+  {
+    id: "a1",
+    consultaId: "c1",
+    fecha: new Date(Date.now() - 3 *24 * 60 * 60 * 1000).toISOString(),
+    hora: "09:00",
+    motivo: "Chequeo general",
+    estado: "seguimiento",
+    patientId: "m1",
+    patientName: "Loki",
+    raza: "Pastor Alemán",
+    ownerName: "Adrian Salazar",
+    phone: "8095551234",
+    doctorName: "Dr. Juan Pérez",
+    categoria: "overdue",
+  },
+  {
+    id: "a2",
+    consultaId: "c2",
+    fecha: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
+    hora: "10:30",
+    motivo: "Control preventivo semestral",
+    estado: "seguimiento",
+    patientId: "m2",
+    patientName: "Sachi",
+    raza: "Mestiza",
+    ownerName: "Adriana Hernández",
+    phone: "8295555678",
+    doctorName: "Dra. María López",
+    categoria: "upcoming",
+  },
+];
+
+export const demoConsultaClientes = [
+  {
+    id: "c1",
+    nombre: "Adrian Salazar",
+    telefono: "8095551234",
+  },
+  {
+    id: "c2",
+    nombre: "Adriana Hernández",
+    telefono: "8295555678",
+  },
+];
+
+export const demoConsultaMascotas = [
+  {
+    id: "m1",
+    clienteId: "c1",
+    nombre: "Loki",
+    raza: "Pastor Alemán",
+    edad: 3,
+    sexo: "Macho",
+    peso: "28",
+  },
+  {
+    id: "m2",
+    clienteId: "c2",
+    nombre: "Sachi",
+    raza: "Mestiza",
+    edad: 2,
+    sexo: "Hembra",
+    peso: "12",
+  },
+];
+
+export const demoConsultaDoctores = [
+  {
+    id: "d1",
+    nombre: "Dr. Juan Pérez",
+  },
+  {
+    id: "d2",
+    nombre: "Dra. María López",
+  },
+];
+
+export const demoTiposConsulta = [
+  { id: "t1", codigo: "gen", nombre: "Examen general" },
+  { id: "t2", codigo: "vac", nombre: "Vacuna" },
+  { id: "t3", codigo: "med", nombre: "Medicación" },
+  { id: "t4", codigo: "ill", nombre: "Enfermedad" },
+  { id: "t5", codigo: "sur", nombre: "Cirugía" },
+  { id: "t6", codigo: "emb", nombre: "Embarazo" },
 ];

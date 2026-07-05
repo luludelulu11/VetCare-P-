@@ -11,7 +11,12 @@ import {
 } from "../utils/formRules";
 import Swal from "sweetalert2";
 import { isDemoMode } from "../utils/demoMode";
-import { demoClientes } from "../mock/demoData";
+import {
+  demoConsultaMascotas,
+  demoConsultaClientes,
+  demoConsultaDoctores,
+  demoTiposConsulta,
+} from "../mock/demoData";
 
 const API_URL = "http://localhost:5000";
 
@@ -443,6 +448,12 @@ export default function ConsultaForm({ onSave }) {
 
   useEffect(() => {
     const loadMascotas = async () => {
+
+      if (isDemoMode) {
+        setMascotas(demoConsultaMascotas);
+        setLoadingMascotas(false);
+        return;
+      }
       try {
         const token = localStorage.getItem("token");
 
@@ -506,6 +517,15 @@ export default function ConsultaForm({ onSave }) {
 
   useEffect(() => {
     const loadClientes = async () => {
+
+
+            if (isDemoMode) {
+        setClientes(demoConsultaClientes);
+        setLoadingClientes(false);
+        return;
+      }
+
+
       try {
         const token = localStorage.getItem("token");
 
@@ -567,6 +587,13 @@ export default function ConsultaForm({ onSave }) {
 
   useEffect(() => {
     const loadDoctores = async () => {
+
+          if (isDemoMode) {
+      setDoctores(demoConsultaDoctores);
+      setLoadingDoctores(false);
+      return;
+    }
+
       try {
         const token = localStorage.getItem("token");
 
@@ -622,6 +649,21 @@ export default function ConsultaForm({ onSave }) {
 
   useEffect(() => {
     const loadTiposConsulta = async () => {
+
+
+          if (isDemoMode) {
+      setAvailableVisitTypes(
+        demoTiposConsulta.map((tipo) => ({
+          ...tipo,
+          colorClass: getVisitTypeColorClass(tipo.codigo),
+        }))
+      );
+
+      setLoadingVisitTypes(false);
+      return;
+    }
+
+
       try {
         const token = localStorage.getItem("token");
 
@@ -921,6 +963,23 @@ export default function ConsultaForm({ onSave }) {
   };
 
   const handleSave = async () => {
+
+          if (isDemoMode) {
+      await Swal.fire({
+        title: "Guardado",
+        text: "Consulta guardada correctamente en modo demo.",
+        icon: "success",
+        timer: 2500,
+        showConfirmButton: false,
+        position: "center",
+      });
+
+      navigate(-1);
+      return;
+    }
+
+
+
     for (let i = 0; i < STEP_TABS.length; i++) {
       if (!validateStep(i)) {
         setActiveStep(i);
@@ -1081,8 +1140,13 @@ export default function ConsultaForm({ onSave }) {
     <div className={styles.wrap}>
       <div className={styles.shell}>
         <div className={styles.hero}>
-          <button type="button" className={styles.back} onClick={() => navigate(-1)}>
-            ← Volver
+          <button
+            type="button"
+            className="btn-back"
+            onClick={() => navigate(-1)}
+            aria-label="Volver"
+          >
+            ←
           </button>
 
           <div className={styles.heroMid}>

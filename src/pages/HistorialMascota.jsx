@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./historialMascota.css";
+import PageHeader from "../components/PageHeader";
+import { PawPrint } from "lucide-react";
 import Swal from "sweetalert2";
 import { isDemoMode } from "../utils/demoMode";
 import {
@@ -424,21 +426,13 @@ export default function HistorialMascota() {
   return (
     <div className="hcd-page">
       <div className="hcd-container">
-        <header className="hcd-hero">
-          <button
-            type="button"
-            className="hcd-back-btn"
-            onClick={() => navigate(-1)}
-          >
-            <span className="hcd-back-arrow">←</span>
-            <span>volver</span>
-          </button>
-
-          <div className="hcd-hero-copy">
-            <h1>Historial de mascota</h1>
-            <p>Detalle clínico del paciente</p>
-          </div>
-        </header>
+        <PageHeader
+          icon={<PawPrint size={24} />}
+          title="Historial de mascota"
+          subtitle="Detalle clínico del paciente"
+          onBack={() => navigate(-1)}
+          backClassName="btn-back--s75"
+        />
 
         {loading ? (
           <div className="hcd-state-card">Loading clinical history...</div>
@@ -461,7 +455,7 @@ export default function HistorialMascota() {
                   <h3 className="hcd-card-label">Mascota</h3>
 
                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                    <button className="edit"
+                    <button className="pet-status-btn--success"
                       type="button"
                       onClick={() => setEditMode((prev) => !prev)}
                       style={{
@@ -476,7 +470,7 @@ export default function HistorialMascota() {
                       {editMode ? "Cancelar" : "Editar"}
                     </button>
 
-                    <button className="deac"
+                    <button className="pet-status-btn--danger"
                       type="button"
                       onClick={handleToggleMascota}
                       style={{
@@ -700,7 +694,7 @@ export default function HistorialMascota() {
 
                           <button
                             type="button"
-                            className="hcd-chevron-btn"
+                            className="chev-btn"
                             onClick={() => navigate(`/consulta/${consulta.id}`)}
                           >
                             ›

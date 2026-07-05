@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./menu.css";
 import Swal from 'sweetalert2';
+import { Moon, Sun } from "lucide-react";
 import { isDemoMode } from "../utils/demoMode";
 import { demoStats } from "../mock/demoData";
 
@@ -192,6 +193,15 @@ export default function MenuPage() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
+
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const [counts, setCounts] = useState({
     clientes: 0,
@@ -507,10 +517,22 @@ export default function MenuPage() {
               <path d="M8 14v.5A3.5 3.5 0 0 0 11.5 18h1a3.5 3.5 0 0 0 3.5-3.5V14a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2z" />
             </svg>
            
-          <span>VetCare</span>
+          <div className="sidebar__brand">
+              Vet<span className="care">Care</span>
+            </div>
         </div>
 
         <div className="topbar__right">
+          <button
+            className="topbar__menu-btn"
+            aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            onClick={() =>
+              setTheme((t) => (t === "dark" ? "light" : "dark"))
+            }
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
           <button
             className="topbar__alert-btn"
             aria-label="Alertas"

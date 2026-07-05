@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
-import { User, Lock, ShieldCheck } from "lucide-react";
+import { User, Lock } from "lucide-react";
+import SecureNote from "../components/SecureNote";
 import { isDemoMode } from "../utils/demoMode";
 import { demoUser } from "../mock/demoData";
 
@@ -105,7 +106,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit}>
             <div className="vc-field">
-              <label htmlFor="usuario">Nombre de usuario <span class = "req">*</span></label>
+              <label htmlFor="usuario">Nombre de usuario <span className="req">*</span></label>
               <div className="vc-input-wrap">
                 <input
                   type="text"
@@ -120,7 +121,7 @@ export default function Login() {
             </div>
 
             <div className="vc-field">
-              <label htmlFor="contrasena">Contraseña <span class = "req">*</span></label>
+              <label htmlFor="contrasena">Contraseña <span className="req">*</span></label>
               <div className="vc-input-wrap">
                 <input
                   type={passType}
@@ -149,16 +150,13 @@ export default function Login() {
               </div>
             )}
 
-            <button className="vc-btn-login" type="submit" disabled={loading}>
+            <button className="btn-primary-teal" type="submit" disabled={loading}>
               {loading ? "Checking..." : "Ingresar"}
             </button>
 
             
 
-            <div className="cl-note">
-              <ShieldCheck size={16} />
-    <span>Secure encrypted connection</span>
-            </div>
+            <SecureNote />
           </form>
         </div>
       </div>

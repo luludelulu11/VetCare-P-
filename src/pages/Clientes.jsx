@@ -10,6 +10,7 @@ import {
 import Swal from "sweetalert2";
 import { isDemoMode } from "../utils/demoMode";
 import { demoClientes } from "../mock/demoData";
+import FormHeader from "../components/FormHeader";
 
 const API_URL = "http://localhost:5000";
 
@@ -222,12 +223,10 @@ console.log("cedula digits:", String(form.cedula).replace(/\D/g, "").length);
   return (
     <div className="cl-body">
       <div className="cl-card">
-        <div className="cl-header">
-          <h1 className="cl-title">Datos del usuario</h1>
-          <p className="cl-sub">
-            Completa la información para registrar al usuario
-          </p>
-        </div>
+        <FormHeader
+                title="Registrar usuario"
+                subtitle="Completa los datos del usuario"
+              />
 
         <form className="cl-form" onSubmit={handleGuardar}>
           <div className="cl-grid-2">
@@ -337,12 +336,12 @@ console.log("cedula digits:", String(form.cedula).replace(/\D/g, "").length);
             </div>
           </div>
 
-          <button className="cl-btn-primary" type="submit" disabled={loading}>
+          <button className="btn-primary-teal" type="submit" disabled={loading}>
             {loading ? "Guardando..." : "Guardar usuario"}
           </button>
 
           <button
-            className="cl-btn-secondary"
+            className="btn-secondary-light"
             type="button"
             onClick={() => navigate("/menu")}
           >
