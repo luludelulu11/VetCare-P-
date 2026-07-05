@@ -514,13 +514,14 @@ body {
 .action-card__title {
   font-size: 0.98rem;
   font-weight: 600;
-  color: inherit;
+  color: var(--text-primary);
   letter-spacing: 0.05em;
   margin: 0;
-  font-family:  playfair display, serif;       
+  font-family:  playfair display, serif;
 }
 .action-card--featured .action-card__title {
   font-size: 1.05rem;
+  color: var(--text-inverse);
 }
 .action-card__desc {
   font-size: 0.8rem;

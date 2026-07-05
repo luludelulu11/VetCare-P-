@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export async function getMascotas() {
-  const res = await fetch("http://localhost:5000/api/mascotas");
+  const res = await fetch(`${API_URL}/api/mascotas`);
 
   if (!res.ok) {
     throw new Error("Could not load pets.");

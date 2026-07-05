@@ -4,7 +4,7 @@ import "./historial.css";
 import { isDemoMode } from "../utils/demoMode";
 import { demoMascotas } from "../mock/demoData";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 export default function HistorialClinico() {
   const navigate = useNavigate();

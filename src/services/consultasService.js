@@ -1,6 +1,8 @@
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export async function getHistorialClinicoByMascota(mascotaId) {
   const res = await fetch(
-    `http://localhost:5000/api/mascotas/${mascotaId}/consultas`
+    `${API_URL}/api/mascotas/${mascotaId}/consultas`
   );
 
   if (!res.ok) {

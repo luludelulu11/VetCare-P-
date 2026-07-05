@@ -7,7 +7,7 @@ import Select from "react-select";
 import { isDemoMode } from "../utils/demoMode";
 import { demoRegistro } from "../mock/demoData";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 
 

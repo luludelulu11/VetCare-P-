@@ -11,7 +11,7 @@ import {
   demoHistorialMascota,
 } from "../mock/demoData";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 const VISIT_TYPE_LABELS = {
   vac: "Vacuna",

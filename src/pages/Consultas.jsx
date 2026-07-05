@@ -18,7 +18,7 @@ import {
   demoTiposConsulta,
 } from "../mock/demoData";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 const STATUS_OPTS = [
   { id: "open", label: "Abierta", colorClass: styles.statusOpen },

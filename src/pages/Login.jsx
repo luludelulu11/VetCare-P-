@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
-import { User, Lock } from "lucide-react";
+import { User, Lock, Eye, EyeOff } from "lucide-react";
 import SecureNote from "../components/SecureNote";
 import { isDemoMode } from "../utils/demoMode";
 import { demoUser } from "../mock/demoData";
@@ -139,7 +139,7 @@ export default function Login() {
                   onClick={() => setShowPass((v) => !v)}
                   aria-label={showPass ? "Hide password" : "Show password"}
                 >
-                  {showPass ? "👁‍🗨" : "👁"}
+                  {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>

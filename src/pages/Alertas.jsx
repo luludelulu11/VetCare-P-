@@ -4,6 +4,8 @@ import styles from "./alertas.module.css";
 import { Bell, ExternalLink, Pencil, Mail, Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import { isDemoMode } from "../utils/demoMode";
+
+const API_URL = import.meta.env.VITE_API_URL || "";
 import { demoAlertas } from "../mock/demoData";
 
 function formatDate(dateString) {
@@ -150,7 +152,7 @@ export default function Alertas() {
 
       
 
-        const response = await fetch("http://localhost:5000/api/alertas", {
+        const response = await fetch(`${API_URL}/api/alertas`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -243,7 +245,7 @@ export default function Alertas() {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/consultas/${id}/enviar-recordatorio`,
+      `${API_URL}/api/consultas/${id}/enviar-recordatorio`,
       {
         method: "POST",
         headers: {
@@ -316,7 +318,7 @@ export default function Alertas() {
     if (!result.isConfirmed) return;
 
       const response = await fetch(
-        `http://localhost:5000/api/alertas/${id}/quitar`,
+        `${API_URL}/api/alertas/${id}/quitar`,
         {
           method: "PUT",
           headers: {

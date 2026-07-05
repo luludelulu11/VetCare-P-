@@ -6,6 +6,8 @@ import { Moon, Sun } from "lucide-react";
 import { isDemoMode } from "../utils/demoMode";
 import { demoStats } from "../mock/demoData";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 const baseMenuSections = [
   {
     label: "Registros",
@@ -283,7 +285,7 @@ export default function MenuPage() {
         }
 
         
-        const res = await fetch("http://localhost:5000/api/stats", {
+        const res = await fetch(`${API_URL}/api/stats`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
